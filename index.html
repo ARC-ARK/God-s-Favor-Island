@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>神眷島導覽</title>
+    <meta
+      name="description"
+      content="神眷島沉浸式導覽網站，支援 HUD 標記與 GitHub Pages 部署。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="appShell" data-state="ready">
+      <div class="scene" aria-hidden="true">
+        <div class="scene__layer scene__layer--a is-active"></div>
+        <div class="scene__layer scene__layer--b"></div>
+        <div class="scene__stars"></div>
+        <div class="scene__veil scene__veil--aurora"></div>
+        <div class="scene__veil scene__veil--vignette"></div>
+        <div class="scene__motion"></div>
+      </div>
+
+      <aside class="control-panel" aria-label="導覽地點">
+        <div class="control-panel__intro">
+          <p class="eyebrow">導覽地點</p>
+          <h2>沉浸導覽</h2>
+          <p class="supporting-text">
+            使用畫面中的光點切換區域，巡覽神眷島的四個場景。
+          </p>
+        </div>
+
+        <div class="control-panel__current" aria-live="polite">
+          <p class="eyebrow" id="panelEyebrow">目標位置</p>
+          <p class="control-panel__current-title" id="panelTitle">原始森林</p>
+          <p class="control-panel__current-description" id="panelDescription">
+            潮濕林蔭與古老樹冠交疊，是神眷島最原始的入口。
+          </p>
+        </div>
+      </aside>
+
+      <main class="viewport" aria-label="神眷島主視角">
+        <div class="hud-readout" aria-live="polite">
+          <div class="hud-readout__item">
+            <span class="hud-readout__label">距離</span>
+            <strong id="distanceValue">270.1</strong>
+          </div>
+          <div class="hud-readout__divider"></div>
+          <div class="hud-readout__item">
+            <span class="hud-readout__label">航向</span>
+            <strong id="headingValue">324° NN</strong>
+          </div>
+        </div>
+
+        <div class="hud-pins" id="pinLayer" aria-label="導覽熱點"></div>
+      </main>
+
+      <section class="island-info" aria-live="polite">
+        <p class="island-info__eyebrow" id="activeEyebrow">目標位置</p>
+        <h1>神眷島</h1>
+        <p class="island-info__meta">
+          <span id="activeTitle">原始森林</span>
+          <span>神聖之地 · 示意座標 48.8564° N, 2.2945° E</span>
+        </p>
+      </section>
+    </div>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
